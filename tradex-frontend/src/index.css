@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+:root {
+  --bg-main: #f8f8f6;
+  --card-main: #ffffff;
+  --text-main: #1a1a1a;
+  --muted-main: #6b7280;
+  --border-main: #e5e7eb;
+  --green-bg: #E1F5EE;
+  --red-bg: #FCEBEB;
+}
+
+.dark {
+  --bg-main: #121214;
+  --card-main: #1e1e24;
+  --text-main: #f3f4f6;
+  --muted-main: #9ca3af;
+  --border-main: #2e2e38;
+  --green-bg: #064e3b;
+  --red-bg: #7f1d1d;
+}
+
+@theme {
+  --color-trade-primary: #1D9E75;
+  --color-trade-green: #1D9E75;
+  --color-trade-greenBg: var(--green-bg);
+  --color-trade-red: #E24B4A;
+  --color-trade-redBg: var(--red-bg);
+  --color-trade-bg: var(--bg-main);
+  --color-trade-card: var(--card-main);
+  --color-trade-text: var(--text-main);
+  --color-trade-muted: var(--muted-main);
+  --color-trade-border: var(--border-main);
+  --font-sans: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-trade-bg text-trade-text font-sans antialiased transition-colors duration-200;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-trade-card/90 backdrop-blur-md border border-trade-border shadow-sm rounded-xl transition-colors duration-200;
+  }
+  .input-field {
+    @apply w-full px-4 py-2 border border-trade-border rounded-lg focus:outline-none focus:ring-2 focus:ring-trade-primary/50 focus:border-trade-primary bg-trade-card text-trade-text transition-colors duration-200;
+  }
+  .btn-primary {
+    @apply bg-trade-primary text-white px-4 py-2 rounded-lg font-medium hover:bg-trade-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer;
+  }
+  .btn-secondary {
+    @apply bg-trade-card border border-trade-border text-trade-text px-4 py-2 rounded-lg font-medium hover:bg-trade-primary/10 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer;
+  }
+}
