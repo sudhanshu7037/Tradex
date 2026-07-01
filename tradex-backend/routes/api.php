@@ -9,6 +9,18 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\WatchlistController;
+
+
+
+
+// 👇 YE ADD KARO
+Route::get('/test', function () {
+    return response()->json([
+        'success' => true,
+        'message' => 'API Working'
+    ]);
+});
+
 Route::post(
     '/register',
     [AuthController::class,'register']
@@ -17,6 +29,12 @@ Route::post(
 Route::post(
   
 '/login', [AuthController::class,'login']);
+
+ Route::get(
+        '/stocks/search',
+        [StockController::class,'search']
+    );
+    
 
 
 Route::middleware('auth:sanctum')->group(function () {
@@ -31,11 +49,7 @@ Route::get(
     [AuthController::class,'logout']
 );
 
-    Route::get(
-        '/stocks/search',
-        [StockController::class,'search']
-    );
-    
+   
     Route::get(
     '/stocks/{symbol}', [StockController::class, 'getCurrentStockPrice']);
 
