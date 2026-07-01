@@ -30,10 +30,7 @@ Route::post(
   
 '/login', [AuthController::class,'login']);
 
- Route::get(
-        '/stocks/search',
-        [StockController::class,'search']
-    );
+ 
     
 
 
@@ -48,6 +45,13 @@ Route::get(
     '/logout',
     [AuthController::class,'logout']
 );
+
+
+Route::get(
+        '/stocks/search',
+        [StockController::class,'search']
+    );
+
 
    
     Route::get(
