@@ -21,8 +21,8 @@ return [
 
     'allowed_origins' => [
 
-        'https://tradex-steel.vercel.app',
-        
+        '*',
+
          ],
 
     'allowed_origins_patterns' => [],
