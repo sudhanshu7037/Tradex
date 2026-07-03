@@ -21,6 +21,23 @@ import TransactionsPage from './pages/TransactionsPage';
 import WatchlistPage from './pages/WatchlistPage';
 import ProfilePage from './pages/ProfilePage';
 
+// Admin Layout & Routes
+import AdminLayout from './layouts/AdminLayout';
+import AdminProtectedRoute from './routes/AdminProtectedRoute';
+import AdminLoginPage from './pages/admin/AdminLoginPage';
+import AdminDashboardPage from './pages/admin/AdminDashboardPage';
+import AdminUsersPage from './pages/admin/AdminUsersPage';
+import AdminPortfoliosPage from './pages/admin/AdminPortfoliosPage';
+import AdminWatchlistsPage from './pages/admin/AdminWatchlistsPage';
+import AdminTransactionsPage from './pages/admin/AdminTransactionsPage';
+import AdminRolesPage from './pages/admin/AdminRolesPage';
+import AdminPermissionsPage from './pages/admin/AdminPermissionsPage';
+import AdminAdminsPage from './pages/admin/AdminAdminsPage';
+import AdminAuditLogsPage from './pages/admin/AdminAuditLogsPage';
+import AdminSettingsPage from './pages/admin/AdminSettingsPage';
+import AdminOrdersPage from './pages/admin/AdminOrdersPage';
+import AdminAssetsPage from './pages/admin/AdminAssetsPage';
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -59,6 +76,27 @@ function App() {
           <Route element={<AuthLayout />}>
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
+          </Route>
+
+          {/* Admin Public Route */}
+          <Route path="/admin/login" element={<AdminLoginPage />} />
+
+          {/* Protected Admin Routes */}
+          <Route element={<AdminProtectedRoute />}>
+            <Route element={<AdminLayout />}>
+              <Route path="/admin" element={<AdminDashboardPage />} />
+              <Route path="/admin/users" element={<AdminUsersPage />} />
+              <Route path="/admin/orders" element={<AdminOrdersPage />} />
+              <Route path="/admin/assets" element={<AdminAssetsPage />} />
+              <Route path="/admin/portfolios" element={<AdminPortfoliosPage />} />
+              <Route path="/admin/watchlists" element={<AdminWatchlistsPage />} />
+              <Route path="/admin/transactions" element={<AdminTransactionsPage />} />
+              <Route path="/admin/roles" element={<AdminRolesPage />} />
+              <Route path="/admin/permissions" element={<AdminPermissionsPage />} />
+              <Route path="/admin/admins" element={<AdminAdminsPage />} />
+              <Route path="/admin/audit-logs" element={<AdminAuditLogsPage />} />
+              <Route path="/admin/settings" element={<AdminSettingsPage />} />
+            </Route>
           </Route>
 
           {/* Protected Dashboard Routes */}
